@@ -1,39 +1,46 @@
-var name = prompt("Введіть назву гри:");
+var company = prompt("Введіть назву компанії:");
+var game = prompt("Введіть назву гри:");
+var budget = prompt("Введіть бюджет гри:")
 
-var digitCount = 0;
+if (company.length === 0) {
+    alert("Введіть назву компанії!");
+}
+else if (game.length < 4 || game.length > 11) {
+    alert("Назва гри повинна містити 4-10 літер і максимум 1 цифру!");
+}
+else {
+    alert(
+        "Назва вашої компанії: " + " " + " " + company + " " +
+        "Назва вашої гри: " +  " "  + " " + game +  " " +
+        "Бюджет вашой гри:" +   " " +  " " + budget + "$"   
+    );
+}
+if (budget < 100) {
+    alert("Занадто малий бюджет");
+}
+else  {
+    (budget >= 10000)
+    alert("Занадто багатий бюджет")
+}
 
-for (var i = 0; i < name.length; i++) {
-    if (name[i] >= '0' && name[i] <= '9') {
-        digitCount++;
+var digits = 0;
+
+for (var i = 0; i < game.length; i++) {
+    if (!isNaN(game[i]) && game[i] !== " ") {
+        digits++;
     }
 }
 
-if (name.length >= 4 && name.length <= 10 && digitCount <= 1) {
-    alert("Назва гри: " + name);
+if (game.length < 4 || game.length > 10 || digits > 1) {
+    alert("Назва гри повинна містити 4-10 символів і максимум 1 цифру!");
+}
 
-    var budget;
-
-    while (true) {
-        budget = prompt("Введіть бюджет гри:");
-
-        var isNumber = true;
-
-        for (var i = 0; i < budget.length; i++) {
-            if (budget[i] < '0' || budget[i] > '9') {
-                isNumber = false;
-                break;
-            }
-        }
-
-        if (isNumber && budget.length > 0) {
-            break;
-        } else {
-            alert("Помилка! Вводьте тільки цифри.");
-        }
+for (var i = 0; i < company.length; i++) {
+    if (!isNaN(company[i]) && company[i] !== " ") {
+        digits++;
     }
+}
 
-    alert("Гра: " + name + "\nБюджет: " + budget + "$");
-
-} else {
-    alert("Треба 4-10 символів і не більше 1 цифри, повторіть спробу");
+if (company.length < 4 || company.length > 10 || digits > 1) {
+    alert("Назва гри повинна містити 4-10 символів і максимум 1 цифру!");
 }
